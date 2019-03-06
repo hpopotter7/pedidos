@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<!--<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
+
+<meta charset="UTF-8">
+<title>Demo - Solicitud de pedidos</title>
+<link rel="stylesheet" href="css/bootstrap.min2.css">
+<link rel="stylesheet" href="css/estilos.css" >
+<link rel="stylesheet" href="css/font-awesome.css">
+<link rel="stylesheet" href="css/animate.css">
+<link rel="stylesheet" href="css/jquery.fancybox.css">
+
+
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/assets/jquery.fittext.js"></script>
+<script src="js/assets/jquery.lettering.js"></script>
+<script src="js/jquery.textillate.js"></script>
+<script src="js/jquery.fancybox.js"></script>
+<script src="js/noty/packaged/jquery.noty.packaged.js"></script>
+<script src="js/metodos.js"></script>
+
+ <script>
+  $(document).on("ready",inicio);  
+</script>
+<body>
+        <div class="container">
+           
+           <div class="row" >
+          <div class="col-md-offset-5 col-md-5" id='div_log'>
+            <div class="form-login">
+            <h4>Inicio de sesión</h4>
+            <div class="form-group col-md-12">
+              <label for="name" class="cols-sm-2 control-label">Username</label>
+              <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                  <input id='txt_username' name='txt_username' type="text" class="form-control" placeholder="Usuario" required="" />
+                  <input type="hidden" id='txt_usuario'/>
+                </div>
+              </div>
+            </div>
+            <div class="form-group col-md-12">
+              <label for="" class="cols-sm-2 control-label">Contraseña</label>
+              <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                  <input id='txt_pass' name='txt_pass' type="password" class="form-control" placeholder="Contraseña" required="" />
+                </div>
+              </div>
+            </div>
+            <div class="wrapper">
+            <span class="group-btn">     
+                <a href="#" id='btn_login'  class="btn btn-primary btn-md">login <i class="fa fa-sign-in"></i></a>
+            </span>
+            
+            <div id='respon'class='row'>
+              
+            </div>
+            </div>
+          </div>
+        </div>
+    <section id='seccion'>
+      <h1>Demo de solicitud de pedidos</h1>
+          <div class="row ">
+            <div class="col-md-4">
+              <fieldset>
+                <legend>Equipo</legend>
+                  <select class='form-control' id="lineas" style='color: black'></select>
+              </fieldset>
+              </div>
+              <div class="col-md-4">
+              <fieldset>
+                <legend>Producto</legend>
+                  <select class='form-control' name="" id="nombres" style='color: black'></select>
+               </fieldset>
+              </div>
+              <div class="col-md-2">
+              <fieldset>
+                <legend>Cantidad</legend>
+                  <input type="text" ID='txt_cantidad' class="form-control" placeholder="Cantidad" />
+               </fieldset>
+              </div>
+              <div class="col-md-1">
+                 <fieldset>
+                    <button class="btn btn-warning " id='btn_enviar' type="button"><i class="fa fa-cart-plus" aria-hidden="true"></i> Agregar</button>
+               </fieldset>
+              </div>
+               <div class="col-md-2">
+                   <h6 id='mensaje' style='text-align: center;'></h6>
+              </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+          <table id='tabla_pedido' class="table table-condensed blueTable" >
+            <thead>
+              <tr>
+                <th>Linea</th>
+                <th>Código</th>
+                <th>Producto</th>
+                <th>Cantidad</th>
+              </tr>
+            </thead>
+            <tbody id='cuerpo'>
+            </tbody>
+            <tfoot id='foot'>
+            </tfoot>
+          </table>
+          <button type="button"id='btn_limpiar'class="btn btn-info pull-right"><i class="fa fa-eraser" aria-hidden="true"></i> Vaciar</button>
+          <button type="button"id='btn_solicitar'class="btn btn-success pull-right"><i class="fa fa-send" aria-hidden="true"></i> Solicitar pedido</button>
+        </div>
+        
+          
+        </section>
+  	<div  class="row">
+          <h2 id='mensaje2'></h2>
+        </div>
+   
+</body>
+</html>

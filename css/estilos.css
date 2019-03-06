@@ -1,0 +1,227 @@
+/*
+Free App template for Bootstrap 3
+Code snippet by maridlcrmn for Bootsnipp.com
+Follow me on Twitter @maridlcrmn
+Image credits: unsplash.com
+Image placeholders: placemi.com
+*/
+
+@font-face {
+  font-family: 'Bitter-Regular';
+  src: url('../fonts/Bitter-Regular.eot');
+  src: url('../fonts/Bitter-Regular.eot?#iefix') format('embedded-opentype'), 
+  url('../fonts/Bitter-Regular.woff2') format('woff2'), 
+  url('../fonts/Bitter-Regular.woff') format('woff'), 
+  url('../fonts/Bitter-Regular.ttf') format('truetype'), 
+  url('../fonts/Bitter-Regular.svg#svgBitter_Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+    position: relative;
+    min-width: 1024px;
+    min-height: 758px;
+    height: 100%;
+     background: url(../images/fondo1.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body{
+	font-family: 'Bitter-Regular', Fallback, sans-serif;
+	font-size: 26px;
+  /*
+	background-image: url('../images/fondo.jpg');
+    background-repeat: no-repeat;
+  	background-attachment: fixed;
+    background-size:cover;
+    */
+    /*background-image: linear-gradient(to left bottom, #59687e, #4f6074, #46596a, #3d5161, #354a57);*/
+    color: #fff;
+    max-width: 100%;
+    height: auto;
+}
+h1{
+	background: none;
+}
+a{
+	text-decoration: none;
+	font-size: 24px;
+	color: white;
+}
+button{
+	color: #529C3F;
+}
+
+
+input{
+	color: black;
+}
+
+select{
+  width:100%;
+}
+
+
+
+.clearfix{
+  margin-top: 1em;
+}
+#hidden-content{
+	display: none;
+	background-color: #FF6A00
+}
+
+.textos{
+	
+	width: 100%;
+	margin: .5em auto;
+}
+
+.content {
+    position: relative;
+    display: table;
+    width: 100%;
+    min-height: 100vh;
+}
+
+
+.input-group input {
+    border: 0;
+    box-shadow: none;
+    padding-right: 30px;
+}
+.input-group input:focus,
+.input-group input:active {
+    outline: 0;
+    box-shadow: none;
+}
+
+
+
+
+
+.negro {
+	color: black;
+	vertical-align: bottom;
+	font-size: .7em;
+}
+
+.min{
+	width: 24%;
+}
+
+.abajo{
+	padding-top: 0em;
+}
+
+
+table.blueTable {
+  border: 1px solid #1C6EA4;
+  background-color: #EEEEEE;
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+}
+table.blueTable td, table.blueTable th {
+  border: 1px solid #AAAAAA;
+  padding: 3px 2px;
+}
+table.blueTable tbody td {
+  font-size: 13px;
+  color: #333333;
+}
+table.blueTable tr:nth-child(even) {
+  background: #D0E4F5;
+}
+table.blueTable thead {
+  background: #1C6EA4;
+  background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  background: -webkit-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  border-bottom: 2px solid #444444;
+}
+table.blueTable thead th {
+  font-size: 15px;
+  font-weight: bold;
+  color: #FFFFFF;
+  border-left: 2px solid #D0E4F5;
+}
+table.blueTable thead th:first-child {
+  border-left: none;
+}
+
+table.blueTable tfoot {
+  font-size: 14px;
+  font-weight: bold;
+  color: #FFFFFF;
+  background: #D0E4F5;
+  background: -moz-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  background: -webkit-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  background: linear-gradient(to bottom, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  border-top: 2px solid #444444;
+}
+table.blueTable tfoot td {
+  font-size: 14px;
+}
+table.blueTable tfoot .links {
+  text-align: right;
+}
+table.blueTable tfoot .links a{
+  display: inline-block;
+  background: #1C6EA4;
+  color: #FFFFFF;
+  padding: 2px 8px;
+  border-radius: 5px;
+}
+
+
+@import url(http://fonts.googleapis.com/css?family=Roboto:400);
+body {
+  background-color:#fff;
+  -webkit-font-smoothing: antialiased;
+  font: normal 14px Roboto,arial,sans-serif;
+}
+
+.container {
+    padding: 25px;
+    position: fixed;
+}
+
+.form-login {
+    background: rgba(87,87,250,1);
+background: -moz-radial-gradient(center, ellipse cover, rgba(87,87,250,1) 0%, rgba(58,62,133,1) 100%);
+background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(87,87,250,1)), color-stop(100%, rgba(58,62,133,1)));
+background: -webkit-radial-gradient(center, ellipse cover, rgba(87,87,250,1) 0%, rgba(58,62,133,1) 100%);
+background: -o-radial-gradient(center, ellipse cover, rgba(87,87,250,1) 0%, rgba(58,62,133,1) 100%);
+background: -ms-radial-gradient(center, ellipse cover, rgba(87,87,250,1) 0%, rgba(58,62,133,1) 100%);
+background: radial-gradient(ellipse at center, rgba(87,87,250,1) 0%, rgba(58,62,133,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5757fa', endColorstr='#3a3e85', GradientType=1 );
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 15px;
+    border-color:#d2d2d2;
+    border-width: 5px;
+    box-shadow:0 1px 0 #cfcfcf;
+    color: white;
+}
+
+h4 { 
+ border:0 solid #fff; 
+ border-bottom-width:1px;
+ padding-bottom:10px;
+ text-align: center;
+}
+
+.form-control {
+    border-radius: 10px;
+}
+
+.wrapper {
+    text-align: center;
+}
