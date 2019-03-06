@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html>
-<!--<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
 
 <meta charset="UTF-8">
 <title>Demo - Solicitud de pedidos</title>
-<link rel="stylesheet" href="css/bootstrap.min2.css">
-<link rel="stylesheet" href="css/estilos.css" >
+
+
 <link rel="stylesheet" href="css/font-awesome.css">
 <link rel="stylesheet" href="css/animate.css">
 <link rel="stylesheet" href="css/jquery.fancybox.css">
+<link rel="stylesheet" href="css/jquery-ui2.css">
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/bootstrap.min2.css">
+<link rel="stylesheet" href="css/estilos.css" >
 
 
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/assets/jquery.fittext.js"></script>
 <script src="js/assets/jquery.lettering.js"></script>
-<script src="js/jquery.textillate.js"></script>
+<script src="js/jquery-ui1.12.js"></script>
 <script src="js/jquery.fancybox.js"></script>
 <script src="js/noty/packaged/jquery.noty.packaged.js"></script>
 <script src="js/metodos.js"></script>
@@ -69,10 +72,13 @@
                   <select class='form-control' id="lineas" style='color: black'></select>
               </fieldset>
               </div>
-              <div class="col-md-4">
+              <div class="col-md-5">
               <fieldset>
                 <legend>Producto</legend>
+                <!--
                   <select class='form-control' name="" id="nombres" style='color: black'></select>
+                -->
+                <input type="text" id='txt_nombre' class='form-control' name="" value="" placeholder="Producto">
                </fieldset>
               </div>
               <div class="col-md-2">
@@ -83,7 +89,7 @@
               </div>
               <div class="col-md-1">
                  <fieldset>
-                    <button class="btn btn-warning " id='btn_enviar' type="button"><i class="fa fa-cart-plus" aria-hidden="true"></i> Agregar</button>
+                    <button class="btn btn-warning btn-lg" id='btn_enviar' type="button"><i class="fa fa-plus" aria-hidden="true"></i> Agregar</button>
                </fieldset>
               </div>
                <div class="col-md-2">
@@ -108,6 +114,7 @@
           </table>
           <button type="button"id='btn_limpiar'class="btn btn-info pull-right"><i class="fa fa-eraser" aria-hidden="true"></i> Vaciar</button>
           <button type="button"id='btn_solicitar'class="btn btn-success pull-right"><i class="fa fa-send" aria-hidden="true"></i> Solicitar pedido</button>
+          
         </div>
         
           

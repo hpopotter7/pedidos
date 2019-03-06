@@ -1,5 +1,7 @@
 function inicio(){
 
+  var contador=1;
+
 	 function generate(type, text, time) {
     if(type=="error" || type=='warning'){
       $("#audio_error")[0].play();
@@ -34,7 +36,7 @@ function inicio(){
 	$('#div_log').show();
 	$('#txt_username').focus();
 
-	var clave= Array("");
+	       var clave= Array("");
           var desc= Array("");
           var linea= Array("");
           var existencias= Array("");
@@ -44,6 +46,7 @@ function inicio(){
           var costo= Array("");
           var con= Array("");
           var user= Array("");
+          var nombres_filtro=Array();
 
 	 function removeDups(array) {
     
@@ -64,7 +67,7 @@ function inicio(){
 	$('#lineas').change(function(){
 		//console.log(linea.length);
 		var posiciones=Array("");
-		var nombres_filtro=Array("");
+		//var nombres_filtro=Array("");
 		var valor_seleccionado=$('#lineas option:selected').val();
 		//console.log(linea);
 		//console.log(desc);
@@ -92,15 +95,18 @@ function inicio(){
 
 		$('#btn_enviar').click(function(){
 			var v1=$('#lineas option:selected').val();
-			var v2=$('#nombres option:selected').val();
-      var arr=v2.split(" - ");
+			/*var v2=$('#nombres option:selected').val();*/
+      var v2=$('#txt_nombre').val();
+      var arr=v2.split("[");
+      var producto=arr[1];
       var code=arr[0];
 			var v3=$('#txt_cantidad').val();
-
-			$('#cuerpo').append('<tr><td>'+v1+'</td><td>'+code+'</td><td>'+arr[1]+'</td><td>'+v3+'</td></tr>');
-			var total="<tr><td> </td><td> </td><td>Total:</td><td>$180</td></tr>";
-			//$('#foot').html(total);
+      producto=producto.replace(']','');
+      id_tr="tr"+contador;
+			$('#cuerpo').append('<tr id="'+id_tr+'"><td>'+v1+'</td><td>'+producto+'</td><td>'+code+'</td><td>'+v3+'<button type="button" id="btn'+id_tr+'" class="boton_borrar btn btn-danger btn-xs pull-right"><i class="fa fa-trash" aria-hidden="true"></i> Borrar</button></td></tr>');
+      contador++;
 			$('#txt_cantidad').val('');
+      $('#txt_nombre').val('')
 	        
 		});
 
@@ -146,7 +152,7 @@ function mayus(string)
               	var cliente=arreglo_linea[0];
               	if(cliente==usuario){
               		clave.push(filas[0]);
-		              desc.push(filas[0]+" - "+filas[1]);
+		              desc.push(filas[1]+" ["+filas[0]+"]");
 		              linea.push(filas[2]);
 		              existencias.push(filas[3]);
 		              fecha1.push(filas[4]);
@@ -203,5 +209,16 @@ $('#btn_solicitar').click(function(){
                  },
 });
 	});
+
+$( "#txt_nombre" ).autocomplete({
+      source: nombres_filtro
+    });
+
+$("#cuerpo").delegate(".boton_borrar", "click", function() {
+  var nombre=$(this).attr("id");
+  nombre=nombre.replace("btn", "");
+  document.getElementById(nombre).remove();
+  
+});
 	
 }
