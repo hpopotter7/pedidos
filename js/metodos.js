@@ -3,15 +3,13 @@ function inicio(){
   var contador=1;
 
 	 function generate(type, text, time) {
-    if(type=="error" || type=='warning'){
-      $("#audio_error")[0].play();
-    }
+    
 
             var n = noty({
                 text        : text,
                 type        : type,
-                dismissQueue: true,
-                layout      : 'topRight',  //bottomLeft
+                dismissQueue: false,
+                layout      : 'topRight',  //bottomLeft/
                 animation: {
 			         open: 'animated fadeInDownBig',
 		            close: 'animated flipOutX',
@@ -19,26 +17,25 @@ function inicio(){
 		            speed:500
 			    },
                 //closeWith   : ['button'],
-                //theme       : 'defau',
+                theme       : 'relax',
                 progressBar : false,
                 maxVisible  : 10,
                 timeout     : [time],
                 
             });
-            //console.log('html: ' + n.options.id);
+            
             return n;
         }
 
 	
-	//$('#btn_enviar').hide();
-	//$('#btn_solicitar').hide();
+	
 	$('section').hide();
 	$('#div_log').show();
 	$('#txt_username').focus();
 
 	       var clave= Array("");
           var desc= Array("");
-          var linea= Array("");
+          var equipo= Array("");
           var existencias= Array("");
           var fecha1= Array("");
           var stock= Array("");
@@ -47,6 +44,7 @@ function inicio(){
           var con= Array("");
           var user= Array("");
           var nombres_filtro=Array();
+          var datos_filtro_cliente=Array();
 
 	 function removeDups(array) {
     
@@ -62,52 +60,64 @@ function inicio(){
   return outArray;
 }
 
-   
+    	$('#lineas').change(function(){
+    		var posiciones=Array("");
+        nombres_filtro.splice(0,nombres_filtro.length)
+         
+    		var valor_seleccionado=$('#lineas option:selected').val();
+        valor_seleccionado="#"+valor_seleccionado;
+          for(var r=0;r<=datos_filtro_cliente.length-1;r++){
+          	//if(equipo[r]==valor_seleccionado){
+              
+              
+              if(datos_filtro_cliente[r].includes(valor_seleccionado)){
 
-	$('#lineas').change(function(){
-		//console.log(linea.length);
-		var posiciones=Array("");
-		//var nombres_filtro=Array("");
-		var valor_seleccionado=$('#lineas option:selected').val();
-		//console.log(linea);
-		//console.log(desc);
-          for(var r=0;r<=linea.length-1;r++){
-          	if(linea[r]==valor_seleccionado){
+                var arr_datos=datos_filtro_cliente[r].split("#");
+                var codigo_nombre=arr_datos[1]+" ["+arr_datos[0]+"]";
           		posiciones.push(r);
+          		nombres_filtro.push(codigo_nombre);
 
-          		nombres_filtro.push(desc[r]);
-          		//console.log(valor_seleccionado+"=="+desc[r]);
           	}
-          	
           }
-          //console.log(posiciones);
           nombres_filtro.sort();
           nombres_filtro.splice(0, 1);
-          $('#nombres').html("<option value='vacio'>Selecciona...</option");
+         /* $('#nombres').html("<option value='vacio'>Selecciona...</option");
           for (var i=0;i<=nombres_filtro.length-1;i++) {
             var code=nombres_filtro[i].split(" - ");
             $('#nombres').append("<option value='"+nombres_filtro[i]+"'>"+code[1]+"</option");
-          }
+          }*/
+          
         });
 
-	
 
 
 		$('#btn_enviar').click(function(){
 			var v1=$('#lineas option:selected').val();
 			/*var v2=$('#nombres option:selected').val();*/
       var v2=$('#txt_nombre').val();
-      var arr=v2.split("[");
-      var producto=arr[1];
-      var code=arr[0];
-			var v3=$('#txt_cantidad').val();
-      producto=producto.replace(']','');
-      id_tr="tr"+contador;
-			$('#cuerpo').append('<tr id="'+id_tr+'"><td>'+v1+'</td><td>'+producto+'</td><td>'+code+'</td><td>'+v3+'<button type="button" id="btn'+id_tr+'" class="boton_borrar btn btn-danger btn-xs pull-right"><i class="fa fa-trash" aria-hidden="true"></i> Borrar</button></td></tr>');
-      contador++;
-			$('#txt_cantidad').val('');
-      $('#txt_nombre').val('')
-	        
+      var v3=$('#txt_cantidad').val();
+      if(v1=="vacio"){
+        generate("warning", "Debe seleccionar un equipo.", 3000);
+      }
+      else if(v2=="") {
+          generate("warning", "Debe ingresar un producto.", 3000);
+      }
+      
+      else if(v3=="") {
+          generate("warning", "Debe ingresar una cantidad.", 3000);
+      }
+      else{
+        var arr=v2.split("[");
+        var producto=arr[1];
+        var code=arr[0];
+  			
+        producto=producto.replace(']','');
+        id_tr="tr"+contador;
+  			$('#cuerpo').append('<tr id="'+id_tr+'"><td>'+v1+'</td><td>'+producto+'</td><td>'+code+'</td><td>'+v3+'<button type="button" id="btn'+id_tr+'" class="boton_borrar btn btn-danger btn-xs pull-right"><i class="fa fa-trash" aria-hidden="true"></i> Borrar</button></td></tr>');
+        contador++;
+  			$('#txt_cantidad').val('');
+        $('#txt_nombre').val('');
+  	   }
 		});
 
 		$('#btn_limpiar').click(function(){
@@ -140,43 +150,38 @@ function mayus(string)
 	         function leer_hoja(){
 	         	$.ajax("https://docs.google.com/spreadsheets/d/e/2PACX-1vTg3fk6hSo2YYSVP9507C03LvRzR37s9rZifPwFIomXCnAAiYadp7pyUgCEIWvO2xmu_JBuu3YR6CeL/pub?output=csv").done(function(result){
           var arr=result.split("\n");
+          
            var usuario=$('#txt_username').val();
            $('#txt_usuario').val(usuario);
-           //alert("Binevenido: "+usuario);
            generate("success", "Bienveid@:"+usuario, 2000);
           for(var r=1;r<=arr.length-1;r++){
               var filas=arr[r].split(",");
-              var arreglo_linea=filas[9].split("\r");
-              //console.log(arreglo_linea);
-              
+              var arreglo_linea=filas[9].split("\r");              
               	var cliente=arreglo_linea[0];
               	if(cliente==usuario){
               		clave.push(filas[0]);
-		              desc.push(filas[1]+" ["+filas[0]+"]");
-		              linea.push(filas[2]);
-		              existencias.push(filas[3]);
-		              fecha1.push(filas[4]);
-		              stock.push(filas[5]);
-		              fecha2.push(filas[6]);
-		              costo.push(filas[7]);
-		              con.push(filas[8]);
+		              desc.push(filas[1]);
+		              equipo.push(filas[2]);
 		              user.push(filas[9]);
+                  datos_filtro_cliente.push(filas[0]+"#"+filas[1]+"#"+filas[2]);
+                  
               	}
 	          
           }
-          //console.log(linea);
           var linea_sin = [];
-			$.each(linea, function(i, el){
+          
+			$.each(equipo, function(i, el){
 			    if($.inArray(el, linea_sin) === -1) linea_sin.push(el);
+          
 			});
-			linea_sin.sort();
+      
+			     linea_sin.sort();
           linea_sin.splice(0, 1);
           $('#lineas').append("<option value='vacio'>Selecciona...</option");
           for (var i=0;i<=linea_sin.length-1;i++) {
             $('#lineas').append("<option value='"+linea_sin[i]+"'>"+linea_sin[i]+"</option");
           }
           
-		  //console.log(desc);
         });
 	         }   
 
@@ -211,7 +216,10 @@ $('#btn_solicitar').click(function(){
 	});
 
 $( "#txt_nombre" ).autocomplete({
-      source: nombres_filtro
+      source: nombres_filtro,
+      change: function (e, ui) {
+                if (!( ui.item)) e.target.value = "";
+            },
     });
 
 $("#cuerpo").delegate(".boton_borrar", "click", function() {

@@ -67,11 +67,14 @@ $tabla = $_POST['tabla'];
         color: #FFFFFF;
         border-left: 2px solid #D0E4F5;
       }
+      .boton_borrar{
+        display: none;
+      }
     </style>
   </head>
   <body>
   <div style="width: 640px; font-family: Helvetica, sans-serif; font-size: 14px;">    
-    <label><h2>El cliente '.$cliente.' ha solicitado el suguiente pedido:</h2></label><br><br><p>
+    <label><h2>El cliente '.$cliente.' ha solicitado el siguiente pedido:</h2></label><br><br><p>
     <div class="row"><table >'.$tabla.'</table></div>
   </div>
   

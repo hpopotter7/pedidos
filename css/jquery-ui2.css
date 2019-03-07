@@ -6,6 +6,7 @@
 
 /* Layout helpers
 ----------------------------------*/
+@import url('https://fonts.googleapis.com/css?family=Overpass');
 .ui-helper-hidden {
 	display: none;
 }
@@ -883,8 +884,9 @@ body .ui-tooltip {
 /* Component containers
 ----------------------------------*/
 .ui-widget {
-	font-family: Arial,Helvetica,sans-serif;
-	font-size: 1em;
+	
+	font-family: 'Overpass', sans-serif;
+font-size: 1em;
 }
 .ui-widget .ui-widget {
 	font-size: 1em;

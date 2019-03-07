@@ -6,17 +6,9 @@ Image credits: unsplash.com
 Image placeholders: placemi.com
 */
 
-@font-face {
-  font-family: 'Bitter-Regular';
-  src: url('../fonts/Bitter-Regular.eot');
-  src: url('../fonts/Bitter-Regular.eot?#iefix') format('embedded-opentype'), 
-  url('../fonts/Bitter-Regular.woff2') format('woff2'), 
-  url('../fonts/Bitter-Regular.woff') format('woff'), 
-  url('../fonts/Bitter-Regular.ttf') format('truetype'), 
-  url('../fonts/Bitter-Regular.svg#svgBitter_Regular') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
+
+
+@import url('https://fonts.googleapis.com/css?family=Overpass');
 
 html {
     position: relative;
@@ -31,8 +23,10 @@ html {
 }
 
 body{
-	font-family: 'Bitter-Regular', Fallback, sans-serif;
+	font-family: 'Overpass', sans-serif;
 	font-size: 26px;
+  
+  -webkit-font-smoothing: antialiased;
   /*
 	background-image: url('../images/fondo.jpg');
     background-repeat: no-repeat;
@@ -43,6 +37,7 @@ body{
     color: #fff;
     max-width: 100%;
     height: auto;
+    font-size: 14px;
 }
 h1{
 	background: none;
@@ -63,6 +58,7 @@ input{
 
 select{
   width:100%;
+  font-size: 12px;
 }
 
 
@@ -178,14 +174,6 @@ table.blueTable tfoot .links a{
   border-radius: 5px;
 }
 
-
-@import url(http://fonts.googleapis.com/css?family=Roboto:400);
-body {
-  background-color:#fff;
-  -webkit-font-smoothing: antialiased;
-  font: normal 14px Roboto,arial,sans-serif;
-}
-
 .container {
     padding: 25px;
     position: fixed;
@@ -219,7 +207,8 @@ h4 {
 }
 
 .form-control {
-    border-radius: 5px;
+  font-family: 'Overpass', sans-serif;
+
 }
 
 .wrapper {
