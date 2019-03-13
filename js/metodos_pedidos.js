@@ -8,7 +8,7 @@ function inicio(){
             var n = noty({
                 text        : text,
                 type        : type,
-                dismissQueue: false,
+                dismissQueue: true,
                 layout      : 'topRight',  //bottomLeft/
                 animation: {
 			         open: 'animated fadeInDownBig',
@@ -17,7 +17,7 @@ function inicio(){
 		            speed:500
 			    },
                 //closeWith   : ['button'],
-                theme       : 'relax',
+                //theme       : 'semanticUI',
                 progressBar : false,
                 maxVisible  : 10,
                 timeout     : [time],
@@ -29,7 +29,7 @@ function inicio(){
 
 	
 	
-	$('section').hide();
+	$('#seccion').hide();
 	$('#div_log').show();
 	$('#txt_username').focus();
 
@@ -68,19 +68,20 @@ function inicio(){
         valor_seleccionado="#"+valor_seleccionado;
           for(var r=0;r<=datos_filtro_cliente.length-1;r++){
           	//if(equipo[r]==valor_seleccionado){
-              
+              console.log(datos_filtro_cliente[r]);
               
               if(datos_filtro_cliente[r].includes(valor_seleccionado)){
 
                 var arr_datos=datos_filtro_cliente[r].split("#");
-                var codigo_nombre=arr_datos[1]+" ["+arr_datos[0]+"]";
+                var codigo_nombre=arr_datos[1]+"("+arr_datos[3]+") - ["+arr_datos[0]+"]";
           		posiciones.push(r);
           		nombres_filtro.push(codigo_nombre);
 
           	}
           }
           nombres_filtro.sort();
-          nombres_filtro.splice(0, 1);
+          //nombres_filtro.splice(0, 1);
+           
          /* $('#nombres').html("<option value='vacio'>Selecciona...</option");
           for (var i=0;i<=nombres_filtro.length-1;i++) {
             var code=nombres_filtro[i].split(" - ");
@@ -92,6 +93,7 @@ function inicio(){
 
 
 		$('#btn_enviar').click(function(){
+      
 			var v1=$('#lineas option:selected').val();
 			/*var v2=$('#nombres option:selected').val();*/
       var v2=$('#txt_nombre').val();
@@ -110,7 +112,7 @@ function inicio(){
         var arr=v2.split("[");
         var producto=arr[1];
         var code=arr[0];
-  			
+  			code=code.replace(' - ','');
         producto=producto.replace(']','');
         id_tr="tr"+contador;
   			$('#cuerpo').append('<tr id="'+id_tr+'"><td>'+v1+'</td><td>'+producto+'</td><td>'+code+'</td><td>'+v3+'<button type="button" id="btn'+id_tr+'" class="boton_borrar btn btn-danger btn-xs pull-right"><i class="fa fa-trash" aria-hidden="true"></i> Borrar</button></td></tr>');
@@ -130,9 +132,9 @@ function inicio(){
 			e.preventDefault();
 			var user=$('#txt_username').val();
 			var pass=$('#txt_pass').val();
-			if((user=='StarMedica' && pass=='123') || (user=='tec100' && pass=='123') || (user=='SNA JOSE' && pass=='123')){
+			if((user=='StarMedica' && pass=='123') || (user=='Tec100' && pass=='123') || (user=='SNA JOSE' && pass=='123')){
 				leer_hoja();
-				$('section').show();
+				$('#seccion').show();
 				$('#div_log').hide();
 				
 			}
@@ -153,7 +155,7 @@ function mayus(string)
           
            var usuario=$('#txt_username').val();
            $('#txt_usuario').val(usuario);
-           generate("success", "Bienveid@:"+usuario, 2000);
+           generate("warning", "Bienveid@:"+usuario, 2000);
           for(var r=1;r<=arr.length-1;r++){
               var filas=arr[r].split(",");
               var arreglo_linea=filas[9].split("\r");              
@@ -163,7 +165,7 @@ function mayus(string)
 		              desc.push(filas[1]);
 		              equipo.push(filas[2]);
 		              user.push(filas[9]);
-                  datos_filtro_cliente.push(filas[0]+"#"+filas[1]+"#"+filas[2]);
+                  datos_filtro_cliente.push(filas[0]+"#"+filas[1]+"#"+filas[2]+"#"+filas[3]);
                   
               	}
 	          
@@ -203,11 +205,12 @@ $('#btn_solicitar').click(function(){
                },
                  success: function(response){
                  	console.log(response);
+
                  	if(response.includes("Enviado")){
+                    var texto="Su pedido ha sido enviado!. En un momento uno de nuestros ejecutivos se pondrá en contacto con usted";
+                     generate("warning", texto, 5000);
 	                 	 $('#btn_solicitar').html('<i class="fa fa-send" aria-hidden="true"></i> Solicitar pedido');
-	                 	 
-                     var texto="Su pedido ha sido enviado!. En un momento uno de nuestros ejecutivos se pondrá en contacto con usted";
-                     generate("success", texto, 5000);
+                      
                      $('#cuerpo').html('');
                     $('#txt_cantidad').val('');
                  	}

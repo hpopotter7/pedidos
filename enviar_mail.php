@@ -88,7 +88,7 @@ $tabla = $_POST['tabla'];
   if (!$mail->send()) {
       echo "Mailer Error: " . $mail->ErrorInfo;
   } else {
-      echo $tabla."Enviado";
+      echo "Enviado";
   }
 
 ?>

@@ -3077,7 +3077,7 @@ legend {
     line-height: inherit;
     color: #fff;
     border: 0;
-    border-bottom: 1px solid #e5e5e5
+    border-bottom: 1px solid #5592bb
 }
 
 label {
@@ -4703,7 +4703,7 @@ textarea.input-group-sm>.input-group-btn>.btn {
     line-height: 1;
     color: #555;
     text-align: center;
-    background-color: #bbd32a;
+    background-color: #e4e4e4;
     /*border: 1px solid #ccc;*/
     border-radius: 4px
 }

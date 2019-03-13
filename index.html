@@ -21,7 +21,7 @@
 <script src="js/jquery-ui1.12.js"></script>
 <script src="js/jquery.fancybox.js"></script>
 <script src="js/noty/packaged/jquery.noty.packaged.js"></script>
-<script src="js/metodos.js"></script>
+<script src="js/metodos_pedidos.js"></script>
 
  <script>
   $(document).on("ready",inicio);  
@@ -30,9 +30,16 @@
         <div class="container">
            
            <div class="row" >
-          <div class="col-md-offset-5 col-md-5" id='div_log'>
+          <div class="row col-md-offset-4 col-md-4" id='div_log'>
             <div class="form-login">
+              <center>
+              <img src="img/logo.webp" alt="">
+            </center>
             <h4>Inicio de sesión</h4>
+            <br><p>
+              <div class="row clearfix">
+              
+              </div>
             <div class="form-group col-md-12">
               <label for="name" class="cols-sm-2 control-label">Username</label>
               <div class="cols-sm-10">
@@ -54,7 +61,7 @@
             </div>
             <div class="wrapper">
             <span class="group-btn">     
-                <a href="#" id='btn_login'  class="btn btn-primary btn-md">login <i class="fa fa-sign-in"></i></a>
+                <a href="#" id='btn_login'  class="btn btn-default btn-md">login <i class="fa fa-sign-in"></i></a>
             </span>
             
             <div id='respon'class='row'>
@@ -63,8 +70,9 @@
             </div>
           </div>
         </div>
-    <section id='seccion'>
-      <h1>Demo de solicitud de pedidos</h1>
+        
+    <div id='seccion' class="row col-md-12">
+      <center><h1>Demo de solicitud de pedidos</h1></center>
           <div class="row ">
             <div class="col-md-4">
               <fieldset>
@@ -89,7 +97,7 @@
               </div>
               <div class="col-md-1">
                  <fieldset>
-                    <button class="btn btn-warning btn-lg" id='btn_enviar' type="button"><i class="fa fa-plus" aria-hidden="true"></i> Agregar</button>
+                    <button class="btn btn-info btn-lg" id='btn_enviar' type="button"><i class="fa fa-plus" aria-hidden="true"></i> Agregar</button>
                </fieldset>
               </div>
                <div class="col-md-2">
@@ -114,12 +122,11 @@
           </table>
           
 
-          <button type="button"id='btn_solicitar'class="btn btn-success btn-lg pull-right"><i class="fa fa-send" aria-hidden="true"></i> Solicitar pedido</button>
+          <button type="button"id='btn_solicitar'class="btn btn-warning btn-lg pull-right"><i class="fa fa-send" aria-hidden="true"></i> Solicitar pedido</button>
           
         </div>
         
-          
-        </section>
+        </div>
   	<div  class="row">
           <h2 id='mensaje2'></h2>
         </div>

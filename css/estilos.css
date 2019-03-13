@@ -15,11 +15,15 @@ html {
     min-width: 1024px;
     min-height: 758px;
     height: 100%;
+    /*
      background: url(../images/fondo1.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  */
+  background: rgb(254,254,254);
+background: radial-gradient(circle, rgba(254,254,254,1) 24%, rgba(99,162,72,1) 100%);
 }
 
 body{
@@ -34,7 +38,7 @@ body{
     background-size:cover;
     */
     /*background-image: linear-gradient(to left bottom, #59687e, #4f6074, #46596a, #3d5161, #354a57);*/
-    color: #fff;
+    color: #000;
     max-width: 100%;
     height: auto;
     font-size: 14px;
@@ -45,10 +49,10 @@ h1{
 a{
 	text-decoration: none;
 	font-size: 24px;
-	color: white;
+	color: black;
 }
 button{
-	color: #529C3F;
+	color: #000;
 }
 
 
@@ -175,12 +179,15 @@ table.blueTable tfoot .links a{
 }
 
 .container {
+  
     padding: 25px;
     position: fixed;
+    width: 100%;
 }
 
 .form-login {
-    background: rgba(87,87,250,1);
+    background-color: #36A653;
+    /*
 background: -moz-radial-gradient(center, ellipse cover, rgba(87,87,250,1) 0%, rgba(58,62,133,1) 100%);
 background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(87,87,250,1)), color-stop(100%, rgba(58,62,133,1)));
 background: -webkit-radial-gradient(center, ellipse cover, rgba(87,87,250,1) 0%, rgba(58,62,133,1) 100%);
@@ -188,6 +195,7 @@ background: -o-radial-gradient(center, ellipse cover, rgba(87,87,250,1) 0%, rgba
 background: -ms-radial-gradient(center, ellipse cover, rgba(87,87,250,1) 0%, rgba(58,62,133,1) 100%);
 background: radial-gradient(ellipse at center, rgba(87,87,250,1) 0%, rgba(58,62,133,1) 100%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5757fa', endColorstr='#3a3e85', GradientType=1 );
+*/
     padding-top: 10px;
     padding-bottom: 20px;
     padding-left: 20px;
@@ -196,7 +204,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5757fa', end
     border-color:#d2d2d2;
     border-width: 5px;
     box-shadow:0 1px 0 #cfcfcf;
-    color: white;
+    color: black;
 }
 
 h4 { 
@@ -208,9 +216,16 @@ h4 {
 
 .form-control {
   font-family: 'Overpass', sans-serif;
+  color: black;
 
 }
 
 .wrapper {
     text-align: center;
+}
+legend{
+  color: black
+}
+.btn{
+  color: black;
 }
